@@ -21,8 +21,7 @@
                         if (err != null) {
                             console.log('something went wrong');
                         } else {
-                            var results = data.resultsPage.results.event;
-
+                            var results       = data.resultsPage.results.event;
                             app.songzee.store = [];
 
                             if (results) {
@@ -46,10 +45,10 @@
 
         displayEvents: function() {
             app.songzee.eventsContainer = document.createElement('div');
-            var list            = document.createElement('ul');
+            var list                    = document.createElement('ul');
 
             app.songzee.eventsContainer.className = 'events-container';
-            list.className                = 'events';
+            list.className = 'events';
 
             for (var i = 0; i < app.songzee.store.length; i++) {
                 var item = document.createElement('li');

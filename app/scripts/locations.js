@@ -94,7 +94,6 @@
             app.songzee.locationsContainer.appendChild(list);
 
             app.events.getEvents();
-
             self.subscribe();
         },
 
