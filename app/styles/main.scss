@@ -63,14 +63,23 @@ h1, h2, h3, p {
 }
 
 .events-container {
-    background: #0F1011;
+    background: #337ab7;
     color: white;
     height: 100%;
     left: 0;
-    padding: 50px;
-    position: absolute;
+    overflow: scroll;
+    padding: 25px;
+    position: fixed;
     top: 0;
     width: 30%;
+
+    li {
+        background: transparent;
+        border-radius: 5px;
+        color: #ffffff;
+        margin: 0 0 5px;
+        padding: 10px 30px;
+    }
 }
 
 input {
@@ -97,5 +106,37 @@ ul {
 a {
     &:hover {
         color: #ffffff;
+    }
+}
+
+.subscribe, .unsubscribe {
+    border-left: 1px solid #666;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 5px;
+    padding-left: 10px;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.nav-pills li a {
+    &:hover, &:focus {
+        background: none;
+    }
+}
+
+.profile-photo {
+    border-radius: 40px;
+    display: block;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    top: -15px;
+    width: 50px;
+    img {
+        height: auto;
+        width: 100%;
     }
 }
