@@ -2,11 +2,6 @@
     'use strict';
 
     var app = window.songzee = (window.songzee || {});
-
-    app.songzee = {
-        apiKey: 'mlDStpZPbG9VNejA',
-        loginStatus: document.querySelector('.login-status')
-    };
     
     var self = app.main = {
 
