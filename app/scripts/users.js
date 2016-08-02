@@ -19,9 +19,6 @@
         },
 
         getUserProfile: function() {
-
-            console.log('user profile init');
-
             app.songzee.info = {};
             app.songzee.user = firebase.auth().currentUser;
             var status = document.querySelector('.login-status');
@@ -47,15 +44,26 @@
         getLocations: function() {
             firebase.database().ref('/users/' + app.songzee.info.id + '/locations').on('value', function(snapshot){
                 var locations = snapshot.val();
-                console.log(snapshot.val());
+                var list      = document.querySelector('.user-locations');
+                var htmlStr   = '<ul class="results">';
 
                 for(var u in locations) {
-
                     for(var location in locations[u]) {
-
-                        console.log(locations[u][location].name);
+                        htmlStr += '<li><a data-id="' + locations[u][location].id + '">' + locations[u][location].name + '</a></li>';
                     }
                 }
+                htmlStr += '</ul>';
+
+
+                var parent    = document.querySelector('.user-locations a');
+
+                while (parent.hasChildNodes()) {
+                    parent.removeChild(parent.firstChild);
+                }
+
+                list.innerHTML += htmlStr;
+
+                app.events.getEvents();
             });
         },
 

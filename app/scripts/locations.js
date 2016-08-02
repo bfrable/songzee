@@ -8,8 +8,6 @@
         loginStatus: document.querySelector('.login-status')
     };
 
-    window.songzee.store = [];
-
     var self = app.locations = {
 
         getInput: function() {
@@ -41,17 +39,23 @@
         getLocations: function() {
             var url = 'http://api.songkick.com/api/3.0/search/locations.json?query=' + app.query + '&apikey=' + app.songzee.apiKey;
 
+            // get JSON from songkick API
             app.main.getJSON(url, function(err, data){
                 if (err != null) {
                     console.log('something went wrong');
                 } else {
                     var results = data.resultsPage.results.location;
 
+                    // create empty array to store results
+                    window.songzee.store = [];
+
                     if (results) {
                         results.forEach(function(obj) {
+                            // push the results to array
                             window.songzee.store.push([obj.city.displayName + ' ' + obj.metroArea.state.displayName, obj.metroArea.id]);
                         });
 
+                        // call displayLocations
                         self.displayLocations();
                     }
                 }
@@ -59,7 +63,7 @@
         },
 
         displayLocations: function() {
-            app.songzee.locationsContainer =  document.getElementsByClassName('results')[0];
+            app.songzee.locationsContainer =  document.getElementsByClassName('results')[1];
             var list      = document.createElement('ul');
 
             var ref = firebase.database().ref('users/' + app.songzee.info.id + '/locations/');

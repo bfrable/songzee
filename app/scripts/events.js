@@ -15,7 +15,7 @@
             for (var i = 0; i < dataSelector.length; i++) {
                 dataSelector[i].addEventListener('click', function() {
                     var id  = this.getAttribute('data-id');
-                    var url = 'http://api.songkick.com/api/3.0/events.json?location=sk:' + id + '&apikey=mlDStpZPbG9VNejA&min_date=2016-07-30&max_date=2016-07-30';
+                    var url = 'http://api.songkick.com/api/3.0/events.json?location=sk:' + id + '&apikey=mlDStpZPbG9VNejA&min_date=2016-08-03&max_date=2016-08-03';
 
                     app.main.getJSON(url, function(err, data){
                         if (err != null) {
